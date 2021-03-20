@@ -1,0 +1,374 @@
+  -P, --pager=PAGER          use program PAGER to display output
+  -r, --prompt=STRING        provide the `less' pager with a prompt
+
+  -7, --ascii                display ASCII translation of certain latin1 chars
+  -E, --encoding=ENCODING    use selected output encoding
+      --no-hyphenation, --nh turn off hyphenation
+      --no-justification,                              --nj   turn off justification
+  -p, --preprocessor=STRING  STRING indicates which preprocessors to run:
+                             e - [n]eqn, p - pic, t - tbl,
+g - grap, r - refer, v - vgrind
+
+  -t, --troff                use groff to format pages
+  -T, --troff-device[=DEVICE]   use groff with selected device
+
+  -H, --html[=BROWSER]       use elinks or BROWSER to display HTML output
+  -X, --gxditview[=RESOLUTION]   use groff and display through gxditview
+                             (X11):
+                             -X = -TX75, -X100 = -TX100, -X100-12 = -TX100-12
+  -Z, --ditroff              use groff and force it to produce ditroff
+
+  -?, --help                 give this help list
+      --usage                give a short usage message
+  -V, --version              print program version
+
+Mandatory or optional arguments to long options are also mandatory or optional
+for any corresponding short options.
+
+Report bugs to cjwatson@debian.org.
+[amalis@hpc-class AdvancedUnixTutorial]$ clear
+
+[amalis@hpc-class AdvancedUnixTutorial]$ cat README.md | head -n 5
+# AdvancedUnixTutorial
+### Rob Schmidt
+Tutorial for workshop given on 3/20/21
+
+This is the 2nd in a series of tutorials for the Bioinformatics and Computational Biology workshop series on Unix. In this tutorial, we will cover some more advanced Unix topics. 
+[amalis@hpc-class AdvancedUnixTutorial]$ nano
+[amalis@hpc-class AdvancedUnixTutorial]$ nano queen codey
+[amalis@hpc-class AdvancedUnixTutorial]$ $bash queen.sh
+-bash: queen.sh: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ bash queen
+bash: queen: No such file or directory
+[amalis@hpc-class AdvancedUnixTutorial]$ bash queencodey:)
+-bash: syntax error near unexpected token `)'
+[amalis@hpc-class AdvancedUnixTutorial]$ nano
+[amalis@hpc-class AdvancedUnixTutorial]$ nano queen
+[amalis@hpc-class AdvancedUnixTutorial]$ bash queen
+Hello Gorgeous!
+[amalis@hpc-class AdvancedUnixTutorial]$ nano queen
+[amalis@hpc-class AdvancedUnixTutorial]$ nano queen
+[amalis@hpc-class AdvancedUnixTutorial]$ bash nano queen
+/usr/bin/nano: /usr/bin/nano: cannot execute binary file
+[amalis@hpc-class AdvancedUnixTutorial]$ bash nano
+/usr/bin/nano: /usr/bin/nano: cannot execute binary file
+[amalis@hpc-class AdvancedUnixTutorial]$ bash nano queen
+/usr/bin/nano: /usr/bin/nano: cannot execute binary file
+[amalis@hpc-class AdvancedUnixTutorial]$ $bash queen.sh
+-bash: queen.sh: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ $bash queen
+-bash: queen: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ nano queen
+[amalis@hpc-class AdvancedUnixTutorial]$ $bash queen
+-bash: queen: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ bash queen.sh
+bash: queen.sh: No such file or directory
+[amalis@hpc-class AdvancedUnixTutorial]$ bash queen
+Hello Gorgeous!#you are doing amazing things
+The answer to life the universe and everything is: 42
+[amalis@hpc-class AdvancedUnixTutorial]$ nano Exercise1.sh
+[amalis@hpc-class AdvancedUnixTutorial]$ bash Exercise1.sh 
+Exercise1.sh: line 1: a: command not found
+Exercise1.sh: line 2: b: command not found
+Exercise1.sh: line 3: c: command not found
+ a,b, and Jenn say hi!
+[amalis@hpc-class AdvancedUnixTutorial]$ nano Exercise1.sh 
+[amalis@hpc-class AdvancedUnixTutorial]$ bash Exercise1.sh 
+Exercise1.sh: line 1: a: command not found
+Exercise1.sh: line 2: b: command not found
+Exercise1.sh: line 3: c: command not found
+,, and  say hi!
+[amalis@hpc-class AdvancedUnixTutorial]$ nano Exercise1.sh 
+[amalis@hpc-class AdvancedUnixTutorial]$ bash Exercise1.sh 
+Jess,Jack, and Jenn say hi!
+[amalis@hpc-class AdvancedUnixTutorial]$ x="cat"
+[amalis@hpc-class AdvancedUnixTutorial]$ x
+-bash: x: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ bash x
+bash: x: No such file or directory
+[amalis@hpc-class AdvancedUnixTutorial]$ $x="cat"
+-bash: cat=cat: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ echo $xs #This will ot work 
+
+[amalis@hpc-class AdvancedUnixTutorial]$ echo $
+$
+[amalis@hpc-class AdvancedUnixTutorial]$ {x}s
+-bash: {x}s: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ bash Exercise1.sh 
+Jess,Jack, and Jenn say hi!
+[amalis@hpc-class AdvancedUnixTutorial]$ nano Exercise1.sh 
+[amalis@hpc-class AdvancedUnixTutorial]$ x='cat'
+[amalis@hpc-class AdvancedUnixTutorial]$ echo $x 
+cat
+[amalis@hpc-class AdvancedUnixTutorial]$ echo $xs
+
+[amalis@hpc-class AdvancedUnixTutorial]$ echo ${x}s
+cats
+[amalis@hpc-class AdvancedUnixTutorial]$ echo ${x}.txt
+cat.txt
+[amalis@hpc-class AdvancedUnixTutorial]$ echo ${cat}.sh
+.sh
+[amalis@hpc-class AdvancedUnixTutorial]$ x=cat
+[amalis@hpc-class AdvancedUnixTutorial]$ echo ${x}.txt
+cat.txt
+[amalis@hpc-class AdvancedUnixTutorial]$ head ls *.sh
+head: cannot open ‘ls’ for reading: No such file or directory
+==> Exercise1.sh <==
+a="Jess"
+b="Jack"
+c="Jenn"
+
+echo "$a,$b, and $c say hi!"
+
+[amalis@hpc-class AdvancedUnixTutorial]$ head $(ls*.sh)
+-bash: ls*.sh: command not found
+^C 
+[amalis@hpc-class AdvancedUnixTutorial]$ head $(ls *.sh)
+a="Jess"
+b="Jack"
+c="Jenn"
+
+echo "$a,$b, and $c say hi!"
+
+[amalis@hpc-class AdvancedUnixTutorial]$ Files=$(ls *.txt)
+ls: cannot access *.txt: No such file or directory
+[amalis@hpc-class AdvancedUnixTutorial]$ nano Exercise1.sh 
+[amalis@hpc-class AdvancedUnixTutorial]$ bash Exercise1.sh 
+Jess,Jack, and Jenn say hi!
+Many Jesses, Jacks, and Jenns say bye!
+[amalis@hpc-class AdvancedUnixTutorial]$ whoami
+amalis
+[amalis@hpc-class AdvancedUnixTutorial]$ x=whoami
+[amalis@hpc-class AdvancedUnixTutorial]$ x
+-bash: x: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ x= $whoami
+[amalis@hpc-class AdvancedUnixTutorial]$ x
+-bash: x: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ x=$(whoami)
+[amalis@hpc-class AdvancedUnixTutorial]$ x
+-bash: x: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ whoami
+amalis
+[amalis@hpc-class AdvancedUnixTutorial]$ head $(ls *.sh)
+a="Jess"
+b="Jack"
+c="Jenn"
+
+echo "$a,$b, and $c say hi!"
+
+echo "Many ${a}es, ${b}s, and ${c}s say bye!"
+
+[amalis@hpc-class AdvancedUnixTutorial]$ echo "I am $(whoami) and today is #(date)"
+I am amalis and today is #(date)
+[amalis@hpc-class AdvancedUnixTutorial]$ echo "I am $(whoami) and today is $(date)"
+I am amalis and today is Sat Mar 20 11:22:15 CDT 2021
+[amalis@hpc-class AdvancedUnixTutorial]$ nano myecho.sh
+[amalis@hpc-class AdvancedUnixTutorial]$ bash myech.sh "I want to print this string"
+bash: myech.sh: No such file or directory
+[amalis@hpc-class AdvancedUnixTutorial]$ bash myecho.sh "I want to print this string"
+I want to print this string
+[amalis@hpc-class AdvancedUnixTutorial]$ nano myecho.sh
+[amalis@hpc-class AdvancedUnixTutorial]$ nano myecho.sh
+[amalis@hpc-class AdvancedUnixTutorial]$ bash myecho.sh "I want to print this string" "And this one" "This one too" "See how this works" "PI"
+I want to print this string
+And this one
+This one too PI
+See how this works
+[amalis@hpc-class AdvancedUnixTutorial]$ nano bowtie2
+[amalis@hpc-class AdvancedUnixTutorial]$ bash bowtiescript.sh
+bash: bowtiescript.sh: No such file or directory
+[amalis@hpc-class AdvancedUnixTutorial]$ bash bowtieScript.sh ForwardReads.fastq ReverseReads.fastq Alignment.sam
+bowtieScript.sh: line 3: bowtie2: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ nano bowtiescript.sh
+[amalis@hpc-class AdvancedUnixTutorial]$ nano bowtiescript.sh
+[amalis@hpc-class AdvancedUnixTutorial]$ bash bowtieScript.sh ForwardReads.fastq ReverseReads.fastq Alignment.sam
+bowtieScript.sh: line 3: bowtie2: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ bash bowtiescript.sh ForwardReads.fastq ReverseReads.fastq Alignment.sam
+bowtiescript.sh: line 3: bowtie2: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ bash myecho.sh "I" "love" "you"
+I
+love
+you
+
+[amalis@hpc-class AdvancedUnixTutorial]$ echo $0 $1 $2
+-bash
+[amalis@hpc-class AdvancedUnixTutorial]$ nano example.1
+[amalis@hpc-class AdvancedUnixTutorial]$ bash example.1 "I" "love" "you"
+example.1 I love
+[amalis@hpc-class AdvancedUnixTutorial]$ nano example.1 
+[amalis@hpc-class AdvancedUnixTutorial]$ bash example.1 "I" "love" "you"
+you I love
+[amalis@hpc-class AdvancedUnixTutorial]$ nano forlooptest.sh
+[amalis@hpc-class AdvancedUnixTutorial]$ bash -bang
+bash: -g: invalid option
+Usage:	bash [GNU long option] [option] ...
+	bash [GNU long option] [option] script-file ...
+GNU long options:
+	--debug
+	--debugger
+	--dump-po-strings
+	--dump-strings
+	--help
+	--init-file
+	--login
+	--noediting
+	--noprofile
+	--norc
+	--posix
+	--protected
+	--rcfile
+	--rpm-requires
+	--restricted
+	--verbose
+	--version
+Shell options:
+	-irsD or -c command or -O shopt_option		(invocation only)
+	-abefhkmnptuvxBCHP or -o option
+[amalis@hpc-class AdvancedUnixTutorial]$ bash forlooptest.sh 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+[amalis@hpc-class AdvancedUnixTutorial]$ nano forlopp
+[amalis@hpc-class AdvancedUnixTutorial]$ bash for lopp
+bash: for: No such file or directory
+[amalis@hpc-class AdvancedUnixTutorial]$ nano for lopp
+[amalis@hpc-class AdvancedUnixTutorial]$ bash forlopp
+{a...z}
+[amalis@hpc-class AdvancedUnixTutorial]$ nano forlopp
+[amalis@hpc-class AdvancedUnixTutorial]$ bash forlopp
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+[amalis@hpc-class AdvancedUnixTutorial]$ nano for looppractice
+[amalis@hpc-class AdvancedUnixTutorial]$ forlooppractice
+-bash: forlooppractice: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ nano forlooppractice
+[amalis@hpc-class AdvancedUnixTutorial]$ bash forlooppractice 
+exercise1.sh
+[amalis@hpc-class AdvancedUnixTutorial]$ nano forlooppractice 
+[amalis@hpc-class AdvancedUnixTutorial]$ bash forlooppractice 
+Hello
+Jess,
+Hello
+Jack,
+Hello
+Jenn
+[amalis@hpc-class AdvancedUnixTutorial]$ cat names.txt
+cat: names.txt: No such file or directory
+[amalis@hpc-class AdvancedUnixTutorial]$ man cat
+[amalis@hpc-class AdvancedUnixTutorial]$ name.txt cat -a
+-bash: name.txt: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ names.txt cat -a
+-bash: names.txt: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ ls
+bowtiescript.sh  forlooppractice  queen
+bowtieScript.sh  forlooptest.sh   queencodey:)
+data             forlopp          README.md
+example.1        Images           UnixCheatSheet.pdf
+Exercise1.sh     myecho.sh
+[amalis@hpc-class AdvancedUnixTutorial]$ nano names.txt
+[amalis@hpc-class AdvancedUnixTutorial]$ nano forloop
+[amalis@hpc-class AdvancedUnixTutorial]$ bash forloop | head -3
+forloop: line 1: syntax error near unexpected token `names.txt'
+forloop: line 1: `for i names.txt'
+[amalis@hpc-class AdvancedUnixTutorial]$ nano forloop
+[amalis@hpc-class AdvancedUnixTutorial]$ bash forloop | head -3
+forloop: line 1: syntax error near unexpected token `$(names.txt)'
+forloop: line 1: `for i $(names.txt)'
+[amalis@hpc-class AdvancedUnixTutorial]$ cat names.txt
+Hello Jess Hello Jenn Hello Jack
+Hello Alice Hello Bob Hello Carl
+[amalis@hpc-class AdvancedUnixTutorial]$ cat names.txt | head-1
+-bash: head-1: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ man head
+[amalis@hpc-class AdvancedUnixTutorial]$ bash forloop | tail
+forloop: line 1: syntax error near unexpected token `$(names.txt)'
+forloop: line 1: `for i $(names.txt)'
+[amalis@hpc-class AdvancedUnixTutorial]$ nano forloop
+[amalis@hpc-class AdvancedUnixTutorial]$ bash forloop
+forloop: line 1: syntax error near unexpected token `$(ls names.txt)'
+forloop: line 1: `for i $(ls names.txt)'
+[amalis@hpc-class AdvancedUnixTutorial]$ names.txt
+-bash: names.txt: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ cat names.txt
+Hello Jess Hello Jenn Hello Jack
+Hello Alice Hello Bob Hello Carl
+[amalis@hpc-class AdvancedUnixTutorial]$ bash names.txt
+names.txt: line 1: Hello: command not found
+names.txt: line 2: Hello: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ bash forloop
+forloop: line 1: syntax error near unexpected token `$(ls names.txt)'
+forloop: line 1: `for i $(ls names.txt)'
+[amalis@hpc-class AdvancedUnixTutorial]$ ls
+bowtiescript.sh  forlooppractice  queen
+bowtieScript.sh  forlooptest.sh   queencodey:)
+data             forlopp          README.md
+example.1        Images           UnixCheatSheet.pdf
+Exercise1.sh     myecho.sh
+forloop          names.txt
+[amalis@hpc-class AdvancedUnixTutorial]$ nano exercise4.ish
+[amalis@hpc-class AdvancedUnixTutorial]$ bash exercise4.ish 
+exercise4.ish: line 4: ./text/Alice.txt: No such file or directory
+exercise4.ish: line 4: ./text/Bob.txt: No such file or directory
+exercise4.ish: line 4: ./text/Carl.txt: No such file or directory
+[amalis@hpc-class AdvancedUnixTutorial]$ cat data
+cat: data: Is a directory
+[amalis@hpc-class AdvancedUnixTutorial]$ wd
+-bash: wd: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ pwd
+/home/amalis/AdvancedUnixTutorial
+[amalis@hpc-class AdvancedUnixTutorial]$ nano exercise4.ish
+[amalis@hpc-class AdvancedUnixTutorial]$ bash exercise4.ish
+exercise4.ish: line 4: ./text/Alice.txt: No such file or directory
+exercise4.ish: line 4: ./text/Bob.txt: No such file or directory
+exercise4.ish: line 4: ./text/Carl.txt: No such file or directory
+[amalis@hpc-class AdvancedUnixTutorial]$ slurm is a job manager, just like any regular bash script, comments that slurm can see and can allocate the resources accordingly, hpc.iastate can give you a break down of the slurms/a slurm template
+-bash: slurm: command not found
+[amalis@hpc-class AdvancedUnixTutorial]$ nano slurmexample
+[amalis@hpc-class AdvancedUnixTutorial]$ nano slurmexample
+[amalis@hpc-class AdvancedUnixTutorial]$ sbatch queen
+sbatch: error: This does not look like a batch script.  The first
+sbatch: error: line must start with #! followed by the path to an interpreter.
+sbatch: error: For instance: #!/bin/sh
+[amalis@hpc-class AdvancedUnixTutorial]$ nano slurmexample
+[amalis@hpc-class AdvancedUnixTutorial]$ nano slurmexample
+[amalis@hpc-class AdvancedUnixTutorial]$ sbatch queen
+sbatch: error: This does not look like a batch script.  The first
+sbatch: error: line must start with #! followed by the path to an interpreter.
+sbatch: error: For instance: #!/bin/sh
+[amalis@hpc-class AdvancedUnixTutorial]$ sbatch slurmexample
+Submitted batch job 26636
+[amalis@hpc-class AdvancedUnixTutorial]$ nano slurm2
+[amalis@hpc-class AdvancedUnixTutorial]$ sbatch slurm2
+Submitted batch job 26637
+[amalis@hpc-class AdvancedUnixTutorial]$ 
